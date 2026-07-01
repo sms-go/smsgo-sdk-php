@@ -39,14 +39,29 @@ final class Paginated
         $rawMeta = is_array($payload['meta'] ?? null) ? $payload['meta'] : [];
         /** @var array<int, mixed> $rawData */
         $rawData = is_array($payload['data'] ?? null) ? $payload['data'] : [];
+        $meta = PaginationMeta::fromArray($rawMeta);
 
-        $items = [];
+        // Ramos separados para o PHPStan inferir o parâmetro genérico de cada
+        // caminho: self<array<string, mixed>> sem mapper, self<U> com mapper —
+        // batendo com o tipo de retorno condicional declarado acima.
+        if ($mapItem === null) {
+            $rows = [];
+            foreach ($rawData as $item) {
+                /** @var array<string, mixed> $row */
+                $row = is_array($item) ? $item : [];
+                $rows[] = $row;
+            }
+
+            return new self($meta, $rows);
+        }
+
+        $mapped = [];
         foreach ($rawData as $item) {
             /** @var array<string, mixed> $row */
             $row = is_array($item) ? $item : [];
-            $items[] = $mapItem !== null ? $mapItem($row) : $row;
+            $mapped[] = $mapItem($row);
         }
 
-        return new self(PaginationMeta::fromArray($rawMeta), $items);
+        return new self($meta, $mapped);
     }
 }
