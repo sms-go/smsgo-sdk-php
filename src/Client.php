@@ -408,9 +408,16 @@ final class Client
      */
     private function toError(int $status, mixed $body, string $fallbackMessage = 'Erro na requisição.'): SMSGoError
     {
-        $code = is_array($body) && isset($body['code']) && is_string($body['code']) && $body['code'] !== ''
-            ? $body['code']
-            : self::httpCodeName($status);
+        $rawCode = is_array($body) ? ($body['code'] ?? null) : null;
+        if (is_string($rawCode) && $rawCode !== '') {
+            $code = $rawCode;
+        } elseif (is_int($rawCode) || is_float($rawCode)) {
+            // Controllers legados podem devolver código numérico (ex.: 1006);
+            // espelha o String(body.code) do SDK Node.
+            $code = (string) $rawCode;
+        } else {
+            $code = self::httpCodeName($status);
+        }
 
         if (is_array($body) && isset($body['message']) && is_string($body['message']) && $body['message'] !== '') {
             $message = $body['message'];
