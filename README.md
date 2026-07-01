@@ -266,7 +266,7 @@ Em falhas de validação (422), `$e->errors` traz o detalhe por campo (`list<arr
 
 - `Webhook::verifySignature(rawBody, signatureHeader, secret)` → `bool`
 
-> Referência de máquina completa: **[smspulse.apidog.io](https://smspulse.apidog.io/)** — importável no Apidog/Postman.
+> Referência de máquina completa: **[smsgo.apidog.io](https://smsgo.apidog.io/)** — importável no Apidog/Postman.
 
 ## Exemplos
 
@@ -296,7 +296,7 @@ composer cs-check  # PHP-CS-Fixer (dry-run)
 
 ## Migrando da TotalVoice / Twilio?
 
-SMSGo foca em **DX simples e preço em real**. Sem cadastro de remetente pra começar, sem cobrança em dólar, créditos que não expiram. Documentação completa da API: **[smspulse.apidog.io](https://smspulse.apidog.io/)**.
+SMSGo foca em **DX simples e preço em real**. Sem cadastro de remetente pra começar, sem cobrança em dólar, créditos que não expiram. Documentação completa da API: **[smsgo.apidog.io](https://smsgo.apidog.io/)**.
 
 ## Licença
 
