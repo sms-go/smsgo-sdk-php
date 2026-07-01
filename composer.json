@@ -1,0 +1,57 @@
+{
+    "name": "orynlabs/smsgo",
+    "description": "SDK oficial da SMSGo para PHP — envio de SMS (OTP/2FA, alertas, campanhas), consulta de envios, saldo, faturamento off-session, recarga automática e webhooks de saída.",
+    "type": "library",
+    "keywords": [
+        "smsgo",
+        "sms",
+        "otp",
+        "2fa",
+        "brasil",
+        "webhook",
+        "sdk"
+    ],
+    "homepage": "https://smsgo.com.br",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "SMSGo",
+            "homepage": "https://smsgo.com.br"
+        }
+    ],
+    "support": {
+        "docs": "https://smspulse.apidog.io/",
+        "source": "https://github.com/SMSFy/smsgo-php"
+    },
+    "require": {
+        "php": ">=8.1",
+        "ext-json": "*",
+        "ext-curl": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5",
+        "phpstan/phpstan": "^1.11",
+        "friendsofphp/php-cs-fixer": "^3.58"
+    },
+    "autoload": {
+        "psr-4": {
+            "Orynlabs\\SMSGo\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Orynlabs\\SMSGo\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "phpstan": "phpstan analyse",
+        "cs-fix": "php-cs-fixer fix",
+        "cs-check": "php-cs-fixer fix --dry-run --diff"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
