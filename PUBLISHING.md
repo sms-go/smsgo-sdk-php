@@ -6,7 +6,7 @@ Guia de release do SDK PHP. Registry: **Packagist** · pacote `orynlabs/smsgo`. 
 
 1. Conta em [packagist.org](https://packagist.org).
 2. **Submeter o pacote** uma vez: _Submit_ → cole a URL `https://github.com/sms-go/smsgo-sdk-php`. O Packagist lê o `composer.json` e registra o nome `orynlabs/smsgo`.
-3. **Auto-update** (para novas tags publicarem sozinhas): instale o **Packagist GitHub App** no repo (recomendado), ou configure o webhook do Packagist em _Settings → Webhooks_ com seu API token do Packagist. Guia: https://packagist.org/about#how-to-update-packages
+3. **Auto-update** (para novas tags publicarem sozinhas): **conecte o GitHub no Packagist** (_Profile → Settings → Connect to GitHub_) — ele cria o webhook automaticamente (recomendado); **ou** webhook manual (repo → _Settings → Webhooks_: Payload URL `https://packagist.org/api/github?username=<seu-usuário>`, content type `application/json`, Secret = seu **API Token** do Packagist, evento `push`). ⚠️ O antigo "Packagist GitHub App" (`github.com/apps/packagist`) virou **privado/interno** — não é instalável. Guia: https://packagist.org/about#how-to-update-packages
 
 ## Passo a passo do release
 

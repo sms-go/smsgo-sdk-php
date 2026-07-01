@@ -20,7 +20,7 @@
         }
     ],
     "support": {
-        "docs": "https://smspulse.apidog.io/",
+        "docs": "https://smsgo.apidog.io/",
         "source": "https://github.com/sms-go/smsgo-sdk-php"
     },
     "require": {
